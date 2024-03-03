@@ -1,0 +1,104 @@
+﻿<Window x:Class="SystemPractices2.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local1="clr-namespace:SystemPractices2.Services"
+        xmlns:local="clr-namespace:SystemPractices2.Views.Windows"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="AliceBlue"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Name="DashBordWindow">
+
+    <Window.Resources>
+        <local1:YourConverter x:Key="YourMultiValueConverter"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBox 
+            Text="{Binding URL}"
+            Margin="0,23,0,0"
+            Width="500"
+            Height="50"
+            Grid.Row="0"
+            VerticalAlignment="Top"
+            materialDesign:HintAssist.Hint="URL"
+            Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+
+        <Button
+            Command="{Binding UploadCommand}"
+            Margin="650,8,0,0"
+            Width="100"
+            Height="50"
+            Content="UpLoad"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedButton}"
+            ToolTip="Resource name: MaterialDesignRaisedButton" />
+
+
+        <ListView SelectedItem="{Binding SelectedComment}" ItemsSource="{Binding Comments}" HorizontalContentAlignment="Stretch" Name="CommentsListView" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding postId}" Header="PostID" />
+                    <GridViewColumn DisplayMemberBinding="{Binding id}" Header="ID" />
+                    <GridViewColumn DisplayMemberBinding="{Binding name}" Header="Name" />
+                    <GridViewColumn DisplayMemberBinding="{Binding email}" Header="Email" />
+                    <GridViewColumn DisplayMemberBinding="{Binding body}" Header="Body" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Margin="123,0,0,0" Orientation="Horizontal" Grid.Row="2">
+            <Button 
+                CommandParameter="{Binding ElementName=DashBordWindow}"
+                Command="{Binding AddWindowCommand}"
+                Margin="100,0,0,0"
+                Grid.Row="2"
+                Width="100"
+                Height="50"
+                Content="Add"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton" />
+
+            <Button 
+                Command="{Binding RemoveCommand}"
+                Margin="23,0,0,0"
+                Grid.Row="2"
+                Width="100"
+                Height="50"
+                Content="Remove"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton" />
+
+            <Button 
+                CommandParameter="{Binding ElementName=DashBordWindow}"
+                Command="{Binding EditWindowCommand}"
+                Margin="23,0,0,0"
+                Grid.Row="2"
+                Width="100"
+                Height="50"
+                Content="Edit"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

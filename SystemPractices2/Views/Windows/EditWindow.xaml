@@ -1,0 +1,74 @@
+﻿<Window x:Class="SystemPractices2.Views.Windows.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemPractices2.Views.Windows"
+        mc:Ignorable="d"
+        Title="EditWindow" Height="500" Width="400"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Name="EditWindowMain">
+
+    <Grid>
+        <Label 
+            Margin="120,34,0,0" 
+            FontSize="22" 
+            Content="Edit Comment"
+            Foreground="#673ab7"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox 
+                Text="{Binding Name}"
+                Margin="0,100,0,0"
+                Width="250"
+                Height="50"
+                Grid.Row="0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Name"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+            <TextBox 
+                Text="{Binding Email}"
+                Margin="0,23,0,0"
+                Width="250"
+                Height="50"
+                Grid.Row="0"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Email"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+
+            <TextBox
+                Text="{Binding Body}"
+                Margin="0,23,0,0"
+                Width="250"
+                Height="100"
+                VerticalAlignment="Top"
+                materialDesign:HintAssist.Hint="Body"
+                AcceptsReturn="True"
+                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox}"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Auto" />
+
+            <Button 
+                CommandParameter="{Binding ElementName=EditWindowMain}"
+                Command="{Binding EditCommand}"
+                Margin="0,23,0,0"
+                Grid.Row="2"
+                Width="100"
+                Height="50"
+                Content="Edit"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton" />
+        </StackPanel>
+    </Grid>
+</Window>

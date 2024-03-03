@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "NR84Clc6MbuBx/xf54nFG5kDsgtHgIX2ZuftXbT412Osb/vASJioNLefN2Zul2enoOp8Ny+lNuydAjJGuLzvIA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\asus\\source\\repos\\SystemPractices2\\SystemPractices2\\SystemPractices2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\asus\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\simpleinjector\\5.4.4\\simpleinjector.5.4.4.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\system.componentmodel\\4.0.1\\system.componentmodel.4.0.1.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\system.runtime\\4.1.0\\system.runtime.4.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
